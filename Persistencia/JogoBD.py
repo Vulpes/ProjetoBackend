@@ -84,7 +84,7 @@ class JogoBD(object):
     
     def adicionarConquista(self, id_jogo, conquista):
         if isinstance(conquista, Conquista):
-            with.self__conexao as conn:
+            with self.__conexao as conn:
                 conn.execute("""
                     INSERT INTO Jogo_Coquista(id_jogo, id_conquista) WHERE id = ?
                     VALUES(?,?)
