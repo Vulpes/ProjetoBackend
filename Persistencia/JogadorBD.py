@@ -1,5 +1,6 @@
 from Modelo.Jogador import Jogador
 from Modelo.Jogo import Jogo
+from Persistencia.JogoBD import JogoBD
 import sqlite3
 
 caminhoBancoDados = './BancoDeDados/Dados2.db'
