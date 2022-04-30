@@ -131,7 +131,7 @@ class JogadorBD(object):
         listaJogos = []
         for resultado in resultados:
             jogoBD.consulta(resultado[0]) # resultado[0] é o id do jogo    
-            listaJogos.append(jogo)
+            listaJogos.append(jogoBD)
         
         return listaJogos
 
