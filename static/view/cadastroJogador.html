@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-secondary">
+    <nav>
+        <div class="nav nav-tabs bg-dark" id="nav-tab" role="tablist">
+            <button class="nav-link active text-info" id="nav-formulario-tab" data-bs-target="#nav-formulario"
+                data-bs-toggle="tab" aria-controls="nav-formulario" type="button">Formulário</button>
+            <button class="nav-link text-info" id="nav-tabela-tab" data-bs-target="#nav-tabela" data-bs-toggle="tab"
+                aria-controls="nav-tabela" type="button">Lista de jogadores</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-formulario" role="tabpanel" aria-labelledby="nav-formulario-tab">
+            <div class="row w-100 justify-content-center p-3">
+                <div class="card col-4">
+                    <div class="card-header bg-white">
+                        <div class="card-title text-center">
+                            <h3>Cadastro de jogador</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="">
+                            <div class="mb-3 form-floating">
+                                <input type="text" class="form-control" id="nome" name="nome"
+                                    placeholder="Informe o nome do jogador">
+                                <label for="nome" class="for-label">Nome: </label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <input type="date" class="form-control" id="dataNasc" name="dataNasc"
+                                    placeholder="Informe a data de nascimento do jogador">
+                                <label for="dataNasc" class="for-label">Data de Nascimento: </label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <input type="text" class="form-control" id="nickname" name="nickname"
+                                    placeholder="Informe o apelido do jogador">
+                                <label for="nickname" class="for-label">Nickname: </label>
+                            </div>
+                            <div class="row">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                                    <button class="btn btn-success me-md-2">
+                                        Gravar
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show active w-100" id="nav-tabela" role="tabpanel" aria-labelledby="nav-tabela-tab">
+            <div data-Tabela class="mt-5 card col-4 text-center">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>teste</th>
+                            <th>teste2</th>
+                            <th>teste3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>teste</td>
+                            <td>testes</td>
+                            <td>testessss</td>
+                        </tr>
+                        <tr>
+                            <td>teste</td>
+                            <td>testes</td>
+                            <td>testessss</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
