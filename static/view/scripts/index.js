@@ -2,28 +2,6 @@ var botaoTabela = document.getElementById('nav-tabela-tab');
 
 botaoTabela.onclick = obterJogadores;
 
-function obterJogadores(){
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Basic UmVuYXRvOjEyMzQ1Ng==");
-
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-    };
-
-    try{
-        fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
-          .then(response => response.text())
-          .then(result =>{ 
-              console.log(result);
-              this.exibirJogadores(result);
-            })
-          .catch(error => console.log('error', error));
-    }catch(error){
-        console.log(error);
-    }
-}
-
 function exibirJogadores(listaJogadores){
     const elemVisualizacao = document.querySelector('[data-Tabela]');
     elemVisualizacao.innerHTML = "";
@@ -53,3 +31,27 @@ function exibirJogadores(listaJogadores){
 
     tabela.appendChild(corpoTabela);
 }
+
+
+function obterJogadores(){
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Basic UmVuYXRvOjEyMzQ1Ng==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+    };
+
+    try{
+        fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
+          .then(response => response.text())
+          .then(result =>{ 
+              console.log(result);
+              this.exibirJogadores(result);
+            })
+          .catch(error => console.log('error', error));
+    }catch(error){
+        console.log(error);
+    }
+}
+
