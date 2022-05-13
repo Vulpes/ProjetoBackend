@@ -1,4 +1,4 @@
-var botaoTabela = document.getElementById(' nav-tabela-tab');
+var botaoTabela = document.getElementById('nav-tabela-tab');
 
 botaoTabela.onclick = obterJogadores;
 
@@ -16,7 +16,7 @@ function obterJogadores(){
           .then(response => response.text())
           .then(result =>{ 
               console.log(result);
-              //exibirJogadores(result);
+              this.exibirJogadores(result);
             })
           .catch(error => console.log('error', error));
     }catch(error){
