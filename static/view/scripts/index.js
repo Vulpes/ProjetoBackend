@@ -30,6 +30,7 @@ function exibirJogadores(listaJogadores){
     }
 
     tabela.appendChild(corpoTabela);
+    elemVisualizacao.appendChild(tabela);
 }
 
 
