@@ -47,7 +47,7 @@ function obterJogadores(){
           .then(response => response.text())
           .then(result =>{ 
               console.log(result);
-              this.exibirJogadores(result);
+              exibirJogadores(result);
             })
           .catch(error => console.log('error', error));
     }catch(error){
