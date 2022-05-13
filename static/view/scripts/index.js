@@ -20,13 +20,12 @@ function exibirJogadores(listaJogadores){
     tabela.appendChild(cabecalho);
 
     let corpoTabela = document.createElement('tbody');
-    for(jogador in listaJogadores){
-        console.log(jogador);
+    for(i = 0; i < listaJogadores.length; i++){
         let linha = document.createElement('tr');
-        linha.innerHTML = "<td>"+ listaJogadores[jogador].id +"</td>" +
-                          "<td>"+ listaJogadores[jogador].nome +"</td>" +
-                          "<td>"+ listaJogadores[jogador].dataNasc +"</td>"+
-                          "<td>"+ listaJogadores[jogador].apelido +"</td>";
+        linha.innerHTML = "<td>"+ listaJogadores[i].id +"</td>" +
+                          "<td>"+ listaJogadores[i].nome +"</td>" +
+                          "<td>"+ listaJogadores[i].dataNasc +"</td>"+
+                          "<td>"+ listaJogadores[i].apelido +"</td>";
         corpoTabela.appendChild(linha);
     }
 
