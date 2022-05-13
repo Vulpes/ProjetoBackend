@@ -49,7 +49,7 @@ function obterJogadores(){
           .then(response => response.text())
           .then(result =>{ 
               console.log(result);
-              exibirJogadores(toJson(result));
+              exibirJogadores(result.json());
             })
           .catch(error => console.log('error', error));
     }catch(error){
