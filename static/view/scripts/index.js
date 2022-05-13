@@ -22,10 +22,10 @@ function exibirJogadores(listaJogadores){
     let corpoTabela = document.createElement('tbody');
     for(jogador in listaJogadores){
         let linha = document.createElement('tr');
-        linha.innerHTML = "<td>"+ jogador.id +"</td>" +
-                          "<td>"+ jogador.nome +"</td>" +
-                          "<td>"+ jogador.dataNasc +"</td>"+
-                          "<td>"+ jogador.apelido +"</td>";
+        linha.innerHTML = "<td>"+ listaJogadores[jogador].id +"</td>" +
+                          "<td>"+ listaJogadores[jogador].nome +"</td>" +
+                          "<td>"+ listaJogadores[jogador].dataNasc +"</td>"+
+                          "<td>"+ listaJogadores[jogador].apelido +"</td>";
         corpoTabela.appendChild(linha);
     }
 
