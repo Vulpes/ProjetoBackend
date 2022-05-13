@@ -21,6 +21,7 @@ function exibirJogadores(listaJogadores){
 
     let corpoTabela = document.createElement('tbody');
     for(jogador in listaJogadores){
+        console.log(jogador);
         let linha = document.createElement('tr');
         linha.innerHTML = "<td>"+ listaJogadores[jogador].id +"</td>" +
                           "<td>"+ listaJogadores[jogador].nome +"</td>" +
