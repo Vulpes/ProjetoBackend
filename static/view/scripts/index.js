@@ -16,7 +16,7 @@ function obterJogadores(){
           .then(response => response.text())
           .then(result =>{ 
               console.log(result);
-              exibirJogadores(result);
+              //exibirJogadores(result);
             })
           .catch(error => console.log('error', error));
     }catch(error){
