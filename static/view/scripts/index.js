@@ -43,8 +43,8 @@ function gravarJogador(){
     }else{
         const mensagem = document.querySelector('[data-Mensagem]');
 
-        mensagem.innerHTML("<p>Por favor, preencha todos os campos!</p>")
-        alert("Preencha todos os dados")
+        mensagem.className="alert alert-danger";
+        mensagem.innerHTML = "Por favor, preencha todos os campos!";
     }
 }
 
