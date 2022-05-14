@@ -10,6 +10,9 @@ function gravarJogador(){
     let nome = document.getElementById("nome").value;
     let dataNasc = document.getElementById("dataNasc").value;
     let apelido = document.getElementById("nickname").value;
+    
+    const mensagem = document.querySelector('[data-Mensagem]');
+
 
     if(nome && dataNasc && apelido){
 
@@ -36,13 +39,20 @@ function gravarJogador(){
         };
 
         fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                if(result.id){
+                    mensagem.className="alert alert-success";
+                    mensagem.innerHTML = "Usuário " + result.id + " foi cadastrado com sucesso";
+                }else{
+                    mensagem.className = "alert alert-warning";
+                    mensagem.innerHTML  = result.status;
+                }
+            })
             .catch(error => console.log('error', error));
 
     }else{
-        const mensagem = document.querySelector('[data-Mensagem]');
-
         mensagem.className="alert alert-danger";
         mensagem.innerHTML = "Por favor, preencha todos os campos!";
     }
