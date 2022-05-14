@@ -92,7 +92,7 @@ function obterJogadores(){
 
     try{
         fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
-          .then(response => response.text())
+          .then(response => response.json())
           .then(result =>{ 
               console.log(result);
               exibirJogadores(result);
