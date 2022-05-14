@@ -2,6 +2,52 @@ var botaoTabela = document.getElementById('nav-tabela-tab');
 
 botaoTabela.onclick = obterJogadores;
 
+var botaoGravar = document.getElementById('gravar');
+
+botaoGravar.onclick = gravarJogador;
+
+function gravarJogador(){
+    let nome = document.getElementById("nome").value;
+    let dataNasc = document.getElementById("dataNasc").value;
+    let apelido = document.getElementById("nickname").value;
+
+    if(nome && dataNasc && apelido){
+
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Basic UmVuYXRvOjEyMzQ1Ng==");
+        myHeaders.append("Content-Type", "application/json");
+
+        var data = JSON.stringify({
+            "apelido": apelido,
+            "dataNasc": dataNasc,
+            "nome": nome,
+            "jogos": [
+                {
+                    "id": 1,
+                    "nomejogo": "teste"
+                }
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: data,
+        };
+
+        fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+    }else{
+        const mensagem = document.querySelector('[data-Mensagem]');
+
+        mensagem.innerHTML("<p>Por favor, preencha todos os campos!</p>")
+        alert("Preencha todos os dados")
+    }
+}
+
 function exibirJogadores(listaJogadores){
     const elemVisualizacao = document.querySelector('[data-Tabela]');
     elemVisualizacao.innerHTML = "";
@@ -46,7 +92,7 @@ function obterJogadores(){
 
     try{
         fetch("https://stark-tor-83181.herokuapp.com/jogadores", requestOptions)
-          .then(response => response.json())
+          .then(response => response.text())
           .then(result =>{ 
               console.log(result);
               exibirJogadores(result);
