@@ -71,6 +71,7 @@ function exibirJogadores(listaJogadores){
             <th>Nome</th> \
             <th>Data de Nascimento</th> \
             <th>Nickname</th> \
+            <th>Ações</th>\
             </tr>"
 
     tabela.appendChild(cabecalho);
@@ -82,7 +83,8 @@ function exibirJogadores(listaJogadores){
         linha.innerHTML = "<td>"+ listaJogadores[i].id +"</td>" +
                           "<td>"+ listaJogadores[i].nome +"</td>" +
                           "<td>"+ listaJogadores[i].dataNasc +"</td>"+
-                          "<td>"+ listaJogadores[i].apelido +"</td>";
+                          "<td>"+ listaJogadores[i].apelido +"</td>" + 
+                          "<td><button onclick=apagarJogador("+ listaJogadores[i].id +")>Excluir</button></td>";
         corpoTabela.appendChild(linha);
     }
 
@@ -113,3 +115,24 @@ function obterJogadores(){
     }
 }
 
+function apagarJogador(id){
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Basic UmVuYXRvOjEyMzQ1Ng==");
+
+    var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+    };
+
+    try{
+        fetch("https://stark-tor-83181.herokuapp.com/jogador" + id, requestOptions)
+          .then(response => response.json())
+          .then(result =>{ 
+              console.log(result);
+              
+            })
+          .catch(error => console.log('error', error));
+    }catch(error){
+        console.log(error);
+    }
+}
