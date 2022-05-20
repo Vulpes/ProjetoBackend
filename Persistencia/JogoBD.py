@@ -88,7 +88,7 @@ class JogoBD(object):
                 conn.execute("""
                     INSERT INTO Jogo_Coquista(id_jogo, id_conquista) WHERE id = ?
                     VALUES(?,?)
-                """,[id_jogo, id_conquista])
+                """,[id_jogo, conquista])
             conn.commit()
     
     def limparBibliotecaConquista(self, id_jogo):

@@ -95,5 +95,51 @@ def validarJogos(jogos):
     return listaJogos
 
 
+@app.route("/jogos", methods=["GET", "POST", "DELETE", "PUT"])
+@app.route("/jogos/<int:id>", methods=["GET", "POST", "DELETE", "PUT"])
+
+def jogo(id=None):
+    if request.method == "GET":
+        jogoBD = JogoBD()
+        jogos = []
+
+        if id:
+            jogo = jogoBD.consultar(id)
+
+            if jogo:
+                jogos.append(jogo)
+        else:
+            jogos = jogoBD.consultar("")
+
+        return jsonify([jogo.toJson() for jogo in jogos])
+    
+    elif request.method == "POST":
+        if id:
+            return {"status" : "Erro! Utilize o metodo POST somente para cadastros."}
+        else:
+            if request.is_json:
+                data = request.get_json()
+                nome = data.get("nome")
+                horasJogadas = data.get("horasJogadas")
+                jogo = Jogo(id=0,nome=nome, horasJogadas=horasJogadas)
+                jogoBD = JogoBD()
+                jogoBD.incluir(jogo)
+                return {"id": jogo.id}
+    
+    elif request.method == "DELETE":
+        if id:
+            jogoBD = JogoBD()
+            jogo = jogoBD.consultar(id)
+
+            if jogo: 
+                jogoBD.apagar(jogo)
+                return {"status" : "Jogo Excluído!"} 
+            else:
+                return {"status" : "Jogo não encontrado no servidor!"}
+        else:
+            return {"status" : "Não foi possível ler o id, verifique as informações e tente novamente."}        
+    else:
+        pass
+
 if __name__ == "__main__":
     app.run('0.0.0.0', port=5000)
