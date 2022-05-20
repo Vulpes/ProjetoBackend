@@ -31,7 +31,7 @@ function gravarJogador(){
         };
 
         fetch("https://stark-tor-83181.herokuapp.com/jogos", requestOptions)
-            .then(response => response.json())
+            .then((response) =>{ console.log(response); return response.json(); })
             .then(result => {
                 console.log(result)
                 if(result.id){
