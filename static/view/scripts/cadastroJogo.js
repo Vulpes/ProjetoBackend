@@ -1,6 +1,6 @@
 var botaoTabela = document.getElementById('nav-tabela-tab');
 
-botaoTabela.onclick = obterJogadores;
+botaoTabela.onclick = obterJogos;
 
 var botaoGravar = document.getElementById('gravar');
 
