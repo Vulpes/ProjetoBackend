@@ -128,7 +128,14 @@ function apagarJogador(id){
         fetch("https://stark-tor-83181.herokuapp.com/jogador" + id, requestOptions)
           .then(response => response.json())
           .then(result =>{ 
-              console.log(result);
+                if(result.status == true){
+                    mensagem.className = "alert alert-warning";
+                    mensagem.innerHTML = "Registro excluido com sucesso!";
+                    obterJogadores();
+                }else{
+                    mensagem.className = "alert alert-warning";
+                    mensagem.innerHTML = result.status;
+                }
               
             })
           .catch(error => console.log('error', error));
