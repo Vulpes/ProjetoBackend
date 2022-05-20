@@ -6,7 +6,7 @@ var botaoGravar = document.getElementById('gravar');
 
 botaoGravar.onclick = gravarJogador;
 
-function gravarJogador(){
+function gravarJogador(){   
     let nome = document.getElementById("nome").value;
     let horasJogadas = document.getElementById("horasJogadas").value;
     
