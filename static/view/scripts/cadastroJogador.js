@@ -125,7 +125,7 @@ function apagarJogador(id){
     };
 
     try{
-        fetch("https://stark-tor-83181.herokuapp.com/jogador" + id, requestOptions)
+        fetch("https://stark-tor-83181.herokuapp.com/jogador?id=" + id, requestOptions)
           .then(response => response.json())
           .then(result =>{ 
                 if(result.status == true){
