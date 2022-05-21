@@ -20,7 +20,8 @@ class JogoBD(object):
             conn.commit()
 
     def incluir(self, jogo):
-        if isinstance(jogo,Jogador):
+        print(jogo)
+        if isinstance(jogo,Jogo):
             with self.__conexao as conn:
                 cursor = conn.cursor()
                 cursor.execute("""
@@ -31,7 +32,7 @@ class JogoBD(object):
                 conn.commit()
 
     def apagar(self, jogo):
-        if isinstance(jogo, Jogador):
+        if isinstance(jogo, Jogo):
             with self.__conexao as conn:
                 conn.execute("""
                     DELETE FROM jogo WHERE id = ?
@@ -39,7 +40,7 @@ class JogoBD(object):
                 conn.commit()    
 
     def atualizar(self, jogo):
-        if isinstance(jogo,Jogador):
+        if isinstance(jogo,Jogo):
             with self.__conexao as conn:
                 conn.execute("""
                     UPDATE jogo Set nome = ?, horasjogadas = ? 
@@ -57,7 +58,7 @@ class JogoBD(object):
                 """,[termo_busca])
                 resultado = cursor.fetchone()
                 if resultado:
-                    jogo = Jogador(resultado[0], resultado[1], 
+                    jogo = Jogo(resultado[0], resultado[1], 
                     resultado[2])
                     return jogo
                 else:
@@ -70,12 +71,12 @@ class JogoBD(object):
                 """, ["%" + termo_busca + "%"])
                 resultados = cursor.fetchall()
                 if resultados:
-                    listaJogadores = []
+                    listaJogos = []
                     for resultado in resultados:
-                        jogo = Jogador(resultado[0], resultado[1], 
+                        jogo = Jogo(resultado[0], resultado[1], 
                         resultado[2])
-                        listaJogadores.append(jogo)
-                    return listaJogadores
+                        listaJogos.append(jogo)
+                    return listaJogos
                 else:
                     return []
         else:
