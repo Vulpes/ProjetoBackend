@@ -38,7 +38,7 @@ function gravarJogo(){
                     console.log("Não foi possivel processar a resposta.");
                 }
                 })
-            .then(result => {
+            .then((result) => {
                 console.log(result)
                 if(result.id){
                     mensagem.className="alert alert-success";
