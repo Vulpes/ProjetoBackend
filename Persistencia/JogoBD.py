@@ -27,7 +27,7 @@ class JogoBD(object):
                 cursor.execute("""
                     INSERT INTO jogo(nome, horasJogadas) 
                     values (?,?)
-                """, (jogo.nome, jogo.horasJogadas))
+                """, (jogo.nome, jogo.HorasJogadas))
                 jogo.id = cursor.lastrowid        
                 conn.commit()
 

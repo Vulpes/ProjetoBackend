@@ -30,8 +30,8 @@ function gravarJogo(){
             body: data,
         };
 
-        // fetch("https://stark-tor-83181.herokuapp.com/jogos", requestOptions)
-        fetch("http://172.20.0.19:5000/jogos", requestOptions)
+        fetch("https://stark-tor-83181.herokuapp.com/jogos", requestOptions)
+        // fetch("http://172.20.0.19:5000/jogos", requestOptions)
             .then((response) =>{ 
                 if(response.ok){
                     return response.json(); 

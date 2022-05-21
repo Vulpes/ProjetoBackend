@@ -44,7 +44,7 @@ class Jogo(object):
     def toJson(self):
         return {
             "id": self.__idjogo,
-            "nome": self.__nomejogo,
+            "nome": self.__nomeJogo,
             "conquistas": [conquista.toJson() for conquista in self.__conquistas],
             "horasjogadas": self.__HorasJogadas
         }
