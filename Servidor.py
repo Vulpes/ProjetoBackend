@@ -121,7 +121,7 @@ def jogo(id=None):
                 data = request.get_json()
                 nome = data.get("nome")
                 horasJogadas = data.get("horasJogadas")
-                jogo = Jogo(id=0,nome=nome,conquistas=[], HorasJogadas=horasJogadas)
+                jogo = Jogo(idjogo=0,nomeJogo=nome,conquistas=[], HorasJogadas=horasJogadas)
                 jogoBD = JogoBD()
                 jogoBD.incluir(jogo)
                 return {"id": jogo.id}
